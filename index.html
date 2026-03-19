@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-default">
+    <div class="weather-container">
+        <div class="header">
+            <h1>Weather Dashboard</h1>
+            <div class="header-buttons" style="display: flex; gap: 10px;">
+                <button id="theme-toggle" class="unit-toggle" title="Toggle Theme"><i class="fas fa-cloud-sun"></i></button>
+                <button id="unit-toggle" class="unit-toggle">°C</button>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <div class="input-wrapper">
+                <input type="text" id="city-input" placeholder="Enter city name..." spellcheck="false" autocomplete="off">
+                <div id="suggestions" class="suggestions-dropdown"></div>
+            </div>
+            <button id="voice-btn" class="voice-btn" title="Search by Voice"><i class="fas fa-microphone"></i></button>
+            <button id="search-btn">Search</button>
+        </div>
+
+        <div id="history" class="history"></div>
+
+        <div id="loader" class="loader" style="display: none;"></div>
+
+        <div id="error-message" class="error" style="display: none;">City not found.</div>
+
+        <div class="dashboard-content">
+            <div class="weather-info" id="weather-info" style="display: none;">
+                <h2 id="city-name">--</h2>
+                <div class="temp-box">
+                    <i id="weather-icon" class="fas fa-cloud"></i>
+                    <h1 id="temperature">--°C</h1>
+                </div>
+                <p id="description">--</p>
+                <div class="details">
+                    <div class="col">
+                        <p><i class="fas fa-thermometer-half"></i> Feels Like</p>
+                        <h3 id="feels-like">--°C</h3>
+                    </div>
+                    <div class="col">
+                        <p><i class="fas fa-tint"></i> Humidity</p>
+                        <h3 id="humidity">--%</h3>
+                    </div>
+                    <div class="col">
+                        <p><i class="fas fa-wind"></i> Wind Speed</p>
+                        <h3 id="wind-speed">-- km/h</h3>
+                    </div>
+                    <div class="col">
+                        <p><i class="fas fa-tachometer-alt"></i> Pressure</p>
+                        <h3 id="pressure">-- hPa</h3>
+                    </div>
+                </div>
+                <p id="last-updated" class="last-updated"></p>
+            </div>
+    
+            <div class="forecast-container" id="forecast-container" style="display: none;">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-cards" id="forecast-cards"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
